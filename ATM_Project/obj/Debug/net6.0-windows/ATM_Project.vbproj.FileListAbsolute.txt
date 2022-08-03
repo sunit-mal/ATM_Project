@@ -16,3 +16,4 @@ F:\Software_Engineering\ATM_Project\obj\Debug\net6.0-windows\refint\ATM_Project.
 F:\Software_Engineering\ATM_Project\obj\Debug\net6.0-windows\ATM_Project.pdb
 F:\Software_Engineering\ATM_Project\obj\Debug\net6.0-windows\ATM_Project.genruntimeconfig.cache
 F:\Software_Engineering\ATM_Project\obj\Debug\net6.0-windows\ref\ATM_Project.dll
+F:\Software_Engineering\ATM_Project\obj\Debug\net6.0-windows\ATM_Project.Form2.resources
