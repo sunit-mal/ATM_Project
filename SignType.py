@@ -1,5 +1,5 @@
 class User:
-    def Money():
+    def UserType():
         import tkinter as tkk
 
         root=tkk.Tk()
@@ -15,4 +15,4 @@ class User:
 
         tkk.mainloop()
 
-User.Money()
+User.UserType()
