@@ -1,5 +1,5 @@
 class balanceenq:
-    def bal():
+    def Run():
         import tkinter as tk
 
         root = tk.Tk()
@@ -13,4 +13,4 @@ class balanceenq:
         tk.Button(root, text="OK", height=3, width=20, bd=5, font=("Times New Roman", 15, "bold"),command="").place(x=1000, y=590)
 
         tk.mainloop()
-balanceenq.bal()
+balanceenq.Run()
