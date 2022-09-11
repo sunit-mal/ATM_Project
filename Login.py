@@ -2,7 +2,7 @@
 
 # Window - 2
 class LoginPageForExsistingUser:
-    def play():
+    def Run():
         import tkinter as tk
 
         root=tk.Tk()
@@ -25,7 +25,7 @@ class LoginPageForExsistingUser:
 
 # Window - 3
 class LoginPageForNewUser:
-    def play():
+    def Run():
         import tkinter as tkk
         
         root=tkk.Tk()
@@ -46,5 +46,5 @@ class LoginPageForNewUser:
         
         tkk.mainloop()
 
-LoginPageForExsistingUser.play()
-# LoginPageForNewUser.play()
+LoginPageForExsistingUser.Run()
+# LoginPageForNewUser.Run()
