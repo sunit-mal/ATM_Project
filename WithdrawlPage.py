@@ -1,5 +1,5 @@
 class Withdrawl:
-    def Money():
+    def Run():
         import tkinter as tkk
 
         root=tkk.Tk()
@@ -19,4 +19,4 @@ class Withdrawl:
 
         tkk.mainloop()
 
-Withdrawl.Money()
+Withdrawl.Run()
