@@ -4,11 +4,38 @@
 class LoginPageForExsistingUser:
     def Run():
         import tkinter as tk
-        
+        from openpyxl import Workbook, load_workbook
+        wb = load_workbook('DataBase.xlsx')
+        ws = wb['LoginInfo']
         def TransationNext():
-            root.destroy()
-            from Transationmenu import Transaction_Menu as l
-            l.Run(2)
+            Id = UserId.get()
+            Input_password = Password.get()
+            try:
+                userId = Id
+                i = 1
+                for data in ws:
+                    if ws[f'A{i}'].value == userId:
+                        position = i
+                        password = Input_password
+                        if ws[f'C{position}'].value == password:
+                            Usernum = position
+                            root.destroy()
+                            from Transationmenu import Transaction_Menu as l
+                            l.Run(Usernum)
+                            break
+
+                        else:
+                            my_label = tk.Label(root, text='Password Not Match !', fg='red', bg='#B0CFDE', font=(
+                                'Times New Roman', 13, 'bold')).place(x=350,y=30)
+                    i += 1
+                if(ws[f'A{i}'].value == None):
+                    my_label2 = tk.Label(
+                        root, text='Not Found ',fg='red', bg='#B0CFDE', font=(
+                    'Times New Roman', 13, 'bold')).place(x=350,y=10)
+            except:
+                my_label2 = tk.Label(root, text='Not Found !', fg='red', bg='#B0CFDE', font=(
+                    'Times New Roman', 13, 'bold')).place(x=350,y=10)
+            wb.save('DataBase.xlsx')
         def welcome():
             root.destroy()
             from SignType import User as H
@@ -35,14 +62,32 @@ class LoginPageForExsistingUser:
 class LoginPageForNewUser:
     def Run():
         import tkinter as tkk
+        from openpyxl import Workbook, load_workbook
+        wb = load_workbook('DataBase.xlsx')
+        ws = wb['LoginInfo']
+        def SigninPage():
+            root.destroy
+            from SignType import User as n
+            n.Run()
+            
         def NewaccountNext():
+            ws['H2'] = (ws['H2'].value) + 1
+            Id = UserId.get()
+            password = Password.get()
+            # print(Id)
+            num = ws['H2'].value
+            ws[f'A{num}'] = Id
+            ws[f'B{num}'] = password
+            ws[f'C{num}'] = num
+            Usernum = ws[f'C{num}'].value
+            # ws[''] = Usernum
+            UserId.set("")
+            Password.set("")
+            wb.save('DataBase.xlsx')
             root.destroy()
             from AccountDetails import BioData as y
-            y.Run(2)
-        def WelcomeNext():
-            root.destroy()
-            from SignType import User as H
-            H.Run()
+            y.Run(Usernum)
+            
         root=tkk.Tk()
         root.title("Login")
         root.geometry("1280x720")
@@ -54,12 +99,12 @@ class LoginPageForNewUser:
 
         tkk.Label(root,text="User Id:", font=("Times New Roman", 30)).place(x=200,y=80)
         tkk.Label(root,text="Password:", font=("Times New Roman", 30)).place(x=200,y=240)
-        tkk.Entry(root,bd=7,textvariable= UserId,width=30, font=("Times New Roman", 30)).place(x=600,y=85)
+        tkk.Entry(root,bd=7,textvariable= UserId,width=30, show='*',font=("Times New Roman", 30)).place(x=600,y=85)
         tkk.Entry(root,bd=7,textvariable= Password,width=30, show='*',font=("Times New Roman", 30)).place(x=600,y=245)
         tkk.Button(root,text="Next", height=2, width=20, bd=5, font=("Times New Roman", 15,"bold"),command=NewaccountNext).place(x=650,y=560)
-        tkk.Button(root,text="Back",height=2,width=20,bd=5,font=("Times New Roman", 15,"bold"),command=WelcomeNext).place(x=950,y=560)
+        tkk.Button(root,text="Back",height=2,width=20,bd=5,font=("Times New Roman", 15,"bold"),command=SigninPage).place(x=950,y=560)
         
         tkk.mainloop()
 
 # LoginPageForExsistingUser.Run()
-# LoginPageForNewUser.Run()
+LoginPageForNewUser.Run()
