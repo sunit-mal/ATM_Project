@@ -17,6 +17,7 @@ class DepositNewUser:
             amountstr = amount_var.get()
             amount = int(amountstr)
             if (ws[f'C{Usernum}'].value == None):
+                ws[f'A{Usernum}'] = ws1[f'A{Usernum}'].value
                 ws[f'C{Usernum}'] = 0
             ws[f'F{Usernum}']=str(ws[f'F{Usernum}'].value)+';'+str(ws[f'C{Usernum}'].value)+'+'+str(amount)
             ws[f'C{Usernum}'] = int(ws[f'C{Usernum}'].value) + amount
@@ -28,6 +29,7 @@ class DepositNewUser:
 
         wb = load_workbook('DataBase.xlsx')
         ws = wb['BalanceSheet']
+        ws1 = wb['CustomerData']
         root=tkk.Tk()
         root.title("Deposit")
         root.geometry("1280x720")
@@ -46,4 +48,4 @@ class DepositNewUser:
 
         tkk.mainloop()
 
-# DepositNewUser.Run(4)
+DepositNewUser.Run(3)
