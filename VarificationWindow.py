@@ -3,7 +3,7 @@ class OTPGENERATOR:
         import tkinter as tk
 
         def verifing():
-            print(num,passw)
+            # print(num,passw)
             otp = OTPNumber.get()
             if (otp == str(num)):
                 from openpyxl import Workbook, load_workbook
@@ -12,7 +12,8 @@ class OTPGENERATOR:
                 ws[f'B{2}'] = passw
                 wb.save('DataBase.xlsx')
                 root.destroy()
-                # print(varificationcode,passw)
+                from pinchangedone import pin_change_done as sh
+                sh.play()
             else:
                 OTPNumber.set('')
 
