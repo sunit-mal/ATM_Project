@@ -1,10 +1,20 @@
 #   Window - 4
-
 class BioData:
     def Run(Usernum):
         import tkinter as tkk
 
         def nextbtn():
+            from openpyxl import Workbook, load_workbook
+            wb = load_workbook('DataBase.xlsx')
+            ws = wb['CustomerData']
+            name=name_var.get()
+            Mobile=Mobile_var.get()
+            email=email_var.get()
+
+            ws[f'A{Usernum}'] = name
+            ws[f'B{Usernum}'] =Mobile
+            ws[f'D{Usernum}'] =email
+            wb.save('DataBase.xlsx')
             root.destroy()
             from Deposit import DepositNewUser as data
             data.Run(Usernum)
