@@ -19,8 +19,10 @@ class User:
         root.resizable(False, False)
         root.iconbitmap('D:\Codes\Software Project\ATM_Project-Main\download.ico')
 
-        tkk.Button(root,text="New User", height=3, width=40, bd=5, font=("Helvetica"),command=NewUser).place(x=140,y=320)
-        tkk.Button(root,text="Existing User", height=3, width=40, bd=5, font=("Helvetica"),command=ExsistingUser).place(x=700,y=320)
+        # function key
+
+        tkk.Button(root,text="New User", height=3, width=50, bd=5, font=("Helvetica"),command=NewUser).place(x=140,y=320)
+        tkk.Button(root,text="Existing User", height=3, width=50, bd=5, font=("Helvetica"),command=ExsistingUser).place(x=700,y=320)
     
 
         tkk.mainloop()
