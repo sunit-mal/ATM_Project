@@ -25,6 +25,6 @@ class VarificationCheck:
             to=target_number
             )
         
-        var.Run(otp,passw) 
-
+        wb.save('DataBase.xlsx')
+        var.Run(otp,passw,num) 
 # VarificationCheck.send(3, 1122)

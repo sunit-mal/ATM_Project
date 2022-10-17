@@ -5,6 +5,7 @@
 class ThakyouPlay:
     def play():
         import tkinter as tk
+        from PIL import Image,ImageTk
 
         root=tk.Tk()
         root.title('Thank You')
@@ -12,6 +13,11 @@ class ThakyouPlay:
         root.iconbitmap('./download.ico')
         root.resizable(False, False)
         root.configure(bg='lightblue')
+        img= Image.open('Background.jpg')
+        img_file= img.resize((1280,720), Image.ANTIALIAS)
+        bg = ImageTk.PhotoImage(img_file)
+        bgl = tk.Label(root,image=bg,bd=0)
+        bgl.place(x=0, y=0, width=1280,height=720)
 
         #   funtion key
 

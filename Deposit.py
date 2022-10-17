@@ -4,6 +4,7 @@ class DepositNewUser:
     def Run(Usernum):
         import tkinter as tkk
         from openpyxl import Workbook, load_workbook
+        from PIL import Image,ImageTk
 
         def clean():
             amount_var.set('')
@@ -30,12 +31,19 @@ class DepositNewUser:
         wb = load_workbook('DataBase.xlsx')
         ws = wb['BalanceSheet']
         ws1 = wb['CustomerData']
+        
         root=tkk.Tk()
         root.title("Deposit")
         root.geometry("1280x720")
         root.configure(bg='lightblue')
         root.resizable(False, False)
         root.iconbitmap('./download.ico')
+        img= Image.open('Background.jpg')
+        img_file= img.resize((1280,720), Image.ANTIALIAS)
+        bg = ImageTk.PhotoImage(img_file)
+        bgl = tkk.Label(root,image=bg,bd=0)
+        bgl.place(x=0, y=0, width=1280,height=720)
+
         amount_var = tkk.StringVar()
 
         tkk.Label(root,text="Amount:", font=("Times New Roman", 40)).place(x=200,y=153)
@@ -45,7 +53,7 @@ class DepositNewUser:
         tkk.Button(root,text="Home", height=3, width=25, bd=5, font=("Helvetica"),command=Home).place(x=145,y=560)
         tkk.Button(root,text="Clear", height=3, width=25, bd=5, font=("Helvetica"),command=clean).place(x=650,y=560)
         tkk.Button(root,text="Next",height=3,width=25,bd=5,font=("Helvetica"),command=submit).place(x=950,y=560)
-
+        wb.save('DataBase.xlsx')
         tkk.mainloop()
 
-DepositNewUser.Run(3)
+# DepositNewUser.Run(3)

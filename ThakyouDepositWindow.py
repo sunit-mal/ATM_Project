@@ -3,6 +3,7 @@
 class ThankYouWWindows:
     def play():
         import tkinter as tk
+        from PIL import Image,ImageTk
 
         def backHome():
             root.destroy()
@@ -12,9 +13,14 @@ class ThankYouWWindows:
         root=tk.Tk()
         root.title('New user')
         root.geometry("1280x720")
-        # root.iconbitmap('./download.ico')
+        root.iconbitmap('./download.ico')
         root.resizable(False, False)
         root.configure(bg='lightblue')
+        img= Image.open('Background.jpg')
+        img_file= img.resize((1280,720), Image.ANTIALIAS)
+        bg = ImageTk.PhotoImage(img_file)
+        bgl = tk.Label(root,image=bg,bd=0)
+        bgl.place(x=0, y=0, width=1280,height=720)
 
         #   funtion key
 
@@ -24,4 +30,4 @@ class ThankYouWWindows:
 
         tk.mainloop()
 
-# newuserthankyou.play()
+# ThankYouWWindows.play()
